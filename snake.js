@@ -16,7 +16,7 @@ function init() {
     eat_sound.src = "Assets/eat.mp3";
 
     hit_sound = new Audio();
-    hit_sound = "Assets/hit.mp3";
+    hit_sound.src = "Assets/hit.mp3";
 
     food = getRandomFood();
     snake = {
@@ -69,6 +69,7 @@ function init() {
             var last_y = Math.round(H / cs);
 
             if (this.cells[0].x < 0 || this.cells[0].y < 0 || this.cells[0].x > (last_x - 1) || this.cells[0].y > (last_y - 1)) {
+                hit_sound.play();
                 game_over = true;
             }
         },
